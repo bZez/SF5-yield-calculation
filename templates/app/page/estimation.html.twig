@@ -1,0 +1,261 @@
+<section class="container-fluid h-100 text-end">
+    <div class="row h-100{# align-items-end#} p-3 p-lg-5">
+        <div class="col-md-6 text-start pe-3 pe-lg-5">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item  ms-auto" role="presentation">
+                    <button class="nav-link active rounded-5-start shadow" id="it-tab" data-bs-toggle="pill" data-bs-target="#pills-it" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><i class="bi bi-pc-display"></i> Informatique</button>
+                </li>
+                <li class="nav-item me-auto" role="presentation">
+                    <button class="nav-link rounded-5-end shadow" id="telephonie-tab" data-bs-toggle="pill" data-bs-target="#pills-telephonie" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><i class="bi bi-telephone-fill"></i> Téléphonie</button>
+                </li>
+            </ul>
+            <div class="tab-content mt-4" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-it" role="tabpanel" aria-labelledby="it-tab">
+                    <form name="estimation_it" class="estimation-form needs-validation container-fluid p-0" novalidate>
+                        <div class="row">
+                            <span class="h5">Equipement</span>
+                            <div class="col-12">
+                                <div class="dropdown w-100 rounded bg-white shadow form-control">
+                                    <button class="btn btn-bd-light dropdown-toggle w-100 text-start btn-lg ps-0" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+                                        Aucun modèle sélectionné
+                                    </button>
+                                    <ul class="dropdown-menu w-100" aria-labelledby="bd-versions">
+                                        <li class="row align-items-center px-2" data-bz-value="1" data-bz-label="Modèle N°1">
+                                            <div class="col-auto">
+                                                <img src="https://via.placeholder.com/100" alt="" class="rounded">
+                                            </div>
+                                            <div class="col">
+                                                Modele N°1
+                                            </div>
+                                           {# <a class="dropdown-item current" aria-current="true" href="/docs/5.1/">Latest (5.1.x)</a>#}
+                                        </li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li class="row align-items-center px-2" data-bz-value="2" data-bz-label="Modèle N°2">
+                                            <div class="col-auto">
+                                                <img src="https://via.placeholder.com/100" alt="" class="rounded">
+                                            </div>
+                                            <div class="col">
+                                                Modele N°2
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <input name="modele" required class="form-control form-control-lg" hidden>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <span class="h5">Etat</span>
+                            <div class="col-12">
+                                <div class="dropdown w-100 rounded bg-white shadow form-control">
+                                    <button class="btn btn-bd-light dropdown-toggle w-100 text-start btn-lg ps-0" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+                                        Aucun état sélectionné
+                                    </button>
+                                    <ul class="dropdown-menu w-100" aria-labelledby="bd-versions">
+                                        <li class="row align-items-center px-2" data-bz-value="1" data-bz-label="Neuf">
+                                            <div class="col">
+                                                Neuf
+                                            </div>
+                                            {# <a class="dropdown-item current" aria-current="true" href="/docs/5.1/">Latest (5.1.x)</a>#}
+                                        </li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li class="row align-items-center px-2" data-bz-value="2" data-bz-label="Très bon état">
+                                            <div class="col">
+                                                Très bon état
+                                            </div>
+                                        </li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li class="row align-items-center px-2" data-bz-value="2" data-bz-label="Etat correct">
+                                            <div class="col">
+                                                Correct
+                                            </div>
+                                        </li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li class="row align-items-center px-2" data-bz-value="autre" data-bz-label="Autre">
+                                            <div class="col">
+                                               Autre
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <input name="etat" required class="form-control form-control-lg" hidden>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <span class="h5">Quantité</span>
+                            <div class="col-12">
+                                <input type="number" class="form-control form-control-lg p-3 bg-white shadow" required>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <span class="h5">Informations</span>
+                            <div class="col-12">
+                                <textarea class="form-control form-control-lg p-3 bg-white shadow resize-none" rows="5" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row my-4">
+                            <div class="col-12">
+                                <button data-bz-href="{{ path('estimation') }}" type="submit" class="shadow btn btn-lg btn-primary w-100" data-bz-auth="{{ csrf_token('estimation') }}">Estimer <i class="bi bi-magic -small"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="pills-telephonie" role="tabpanel" aria-labelledby="telephonie-tab">
+                    <form name="estimation_telephonie" class="estimation-form needs-validation container-fluid p-0" novalidate>
+                        <div class="row">
+                            <span class="h5">Equipement</span>
+                            <div class="col-12">
+                                <div class="dropdown w-100 rounded bg-white shadow form-control">
+                                    <button class="btn btn-bd-light dropdown-toggle w-100 text-start btn-lg ps-0" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+                                        Aucun modèle sélectionné
+                                    </button>
+                                    <ul class="dropdown-menu w-100" aria-labelledby="bd-versions">
+                                        <li class="row align-items-center px-2" data-bz-value="1" data-bz-label="Modèle N°1">
+                                            <div class="col-auto">
+                                                <img src="https://via.placeholder.com/100" alt="" class="rounded">
+                                            </div>
+                                            <div class="col">
+                                                Modele N°1
+                                            </div>
+                                            {# <a class="dropdown-item current" aria-current="true" href="/docs/5.1/">Latest (5.1.x)</a>#}
+                                        </li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li class="row align-items-center px-2" data-bz-value="2" data-bz-label="Modèle N°2">
+                                            <div class="col-auto">
+                                                <img src="https://via.placeholder.com/100" alt="" class="rounded">
+                                            </div>
+                                            <div class="col">
+                                                Modele N°2
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <input name="modele" required class="form-control form-control-lg" hidden>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <span class="h5">Etat</span>
+                            <div class="col-12">
+                                <div class="dropdown w-100 rounded bg-white shadow form-control">
+                                    <button class="btn btn-bd-light dropdown-toggle w-100 text-start btn-lg ps-0" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+                                        Aucun état sélectionné
+                                    </button>
+                                    <ul class="dropdown-menu w-100" aria-labelledby="bd-versions">
+                                        <li class="row align-items-center px-2" data-bz-value="1" data-bz-label="Neuf">
+                                            <div class="col">
+                                                Neuf
+                                            </div>
+                                            {# <a class="dropdown-item current" aria-current="true" href="/docs/5.1/">Latest (5.1.x)</a>#}
+                                        </li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li class="row align-items-center px-2" data-bz-value="2" data-bz-label="Très bon état">
+                                            <div class="col">
+                                                Très bon état
+                                            </div>
+                                        </li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li class="row align-items-center px-2" data-bz-value="2" data-bz-label="Etat correct">
+                                            <div class="col">
+                                                Correct
+                                            </div>
+                                        </li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li class="row align-items-center px-2" data-bz-value="autre" data-bz-label="Autre">
+                                            <div class="col">
+                                                Autre
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <input name="etat" required class="form-control form-control-lg" hidden>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <span class="h5">Quantité</span>
+                            <div class="col-12">
+                                <input type="number" class="form-control form-control-lg p-3 bg-white shadow" required>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <span class="h5">Informations</span>
+                            <div class="col-12">
+                                <textarea class="form-control form-control-lg p-3 bg-white shadow resize-none" rows="5" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row my-4">
+                            <div class="col-12">
+                                <button data-bz-href="{{ path('estimation') }}" type="submit" class="shadow btn btn-lg btn-primary w-100" data-bz-auth="{{ csrf_token('estimation') }}">Estimer <i class="bi bi-magic -small"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade py-5 " id="pills-result" role="tabpanel" aria-labelledby="result-tab"></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row h-100 align-items-end">
+                <div class="col-12">
+                    <h1 class="display-1 fw-bold mb-0 lh--1 text-nowrap"><em class="d-none d-xl-inline-block">votre</em> <span class="text-danger">.</span>estimation </h1>
+                    <h2 class="display-1 fw-bold lh--1"><span class="d-inline-block position-relative fw-bold">en <span class="text-primary">3</span> <em
+                                    class="">étapes</em>
+                    <svg class="position-absolute" style="bottom: -.2em;left: 0;" viewBox="0 0 274 8">
+                        <path fill="none" stroke="#dc3545" stroke-width="8"
+                              d="M174,456.290698 C307.466899,452.763566 398.466899,451 447,451"
+                              transform="translate(-173 -450)">
+                        </path>
+                    </svg>
+                </span></h2>
+                    <p class="h6 mt-4">The metaverse is the next
+                        evolution of social
+                        connection. Our company’s
+                        vision is to help bring the metaverse to life, so we are changing our name to reflect our commitment to
+                        this future.</p>
+                    {#        <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card shadow border-0 rounded-3">
+                        <div class="card-header fw-bold border-0">
+                            Etape N°1
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <p>A well-known quote, contained in a blockquote element.</p>
+                                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card shadow border-0 rounded-3">
+                        <div class="card-header fw-bold border-0">
+                            Etape N°2
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <p>A well-known quote, contained in a blockquote element.</p>
+                                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card shadow border-0 rounded-3">
+                        <div class="card-header fw-bold border-0">
+                            Etape N°3
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <p>A well-known quote, contained in a blockquote element.</p>
+                                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>#}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,47 @@
+<div class="container-fluid text-center">
+    <div class="row">
+        <div class="col-12">
+            <h1><span class="text-danger">.</span>estimation réussie</h1>
+
+            <div>
+                Notre offre
+                <h2>1337,00 €</h2>
+            </div>
+
+            <div class="text-start">
+                <i class="bi bi-info-circle-fill text-primary"></i><u class="fw-bold"> Rappel des équipements:</u>
+                <ul class="list-unstyled">
+                    <li>Modèle :<code><a
+                                    href="{{ 'C:/xampp/htdocs/estimation/src/Controller/EstimationController.php'|file_link(0) }}">src/Controller/EstimationController.php</a></code>
+                    </li>
+                    <li>Etat :<code><a
+                                    href="{{ 'C:/xampp/htdocs/estimation/templates/estimation/index.html.twig'|file_link(0) }}">templates/estimation/index.html.twig</a></code>
+                    </li>
+                    <li>Quantité :<code><a
+                                    href="{{ 'C:/xampp/htdocs/estimation/templates/estimation/index.html.twig'|file_link(0) }}">templates/estimation/index.html.twig</a></code>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <form action="" name="estimation-accept" class="needs-validation" novalidate>
+        <div class="row">
+            <div class="col-12 rounded-3 bg-light text-start p-3">
+                <label class="small">
+                    <input type="checkbox" class="custom-check" required name="cgu">
+                    <span class="small">J’accepte que mes données soient collectées pour bénéficier des services estimation. En cliquant sur « Valider » je reconnais avoir pris connaissance des Conditions Générales estimation, de la Politique de Protection des Données et je les accepte.</span>
+                    <small class="invalid-feedback">
+                        Vous devez accepter.
+                    </small>
+                </label>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <button data-bz-href="{{ path('etiquette') }}" type="submit" class="shadow btn btn-lg btn-primary w-100" data-bz-auth="{{ csrf_token('etiquette') }}">
+                    Accepter et générer bon d'envoi <i class="bi bi-check"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

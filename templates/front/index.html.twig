@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <figure id="sheep-head"></figure>
+    {% if not app.user %}
+    <div class="row h-100 align-items-end">
+        <div class="col-12 col-xs-7 col-sm-8 col-md-5 col-lg-4 p-4">
+            <div class="row">
+               {# <figure class="col-12 my-3">
+                    <img src="{{ asset('img/logo-gn-text.svg') }}" alt="graphicNAIVETY logotype" width="100%">
+                </figure>#}
+                <div class="col-12">
+                    <span class="display-4 fw-bold text-white"><span class="text-dark">.</span>connexion</span>
+                </div>
+            </div>
+            <form action="#" name="loginForm" class="needs-validation" method="post" novalidate>
+                <fieldset class="input-group">
+                    <label class="input-group-text" for="login">
+                        <i class="bi bi-envelope-fill"></i>
+                    </label>
+                    <input type="text" value="{{ last_username }}" id="inputUsername" name="username"
+                           autocomplete="username" class="form-control rounded-end shadow" autofocus required>
+                    <div class="invalid-feedback">
+                        Veuillez entrer votre adresse email !
+                    </div>
+                </fieldset>
+                <fieldset class="input-group mt-3">
+                    <label class="input-group-text" for="inputPassword">
+                        <i class="bi bi-lock-fill"></i>
+                    </label>
+                    <input type="password" name="password" id="inputPassword" autocomplete="current-password"
+                           class="form-control rounded-end shadow" required>
+                    <div class="invalid-feedback ">
+                        Veuillez entrer votre mot de passe !
+                    </div>
+                </fieldset>
+                <input type="hidden" name="_csrf_token"
+                       value="{{ csrf_token('authenticate') }}"
+                       required>
+                <button class="btn btn-primary mt-3 shadow fw-bold" name="submit" type="submit" id="loginBtn">
+                    connexion <i class="bi bi-check-lg"></i>
+                </button>
+            </form>
+
+        </div>
+    </div>
+   {% endif %}
+  {% include 'app/main.html.twig' %}
+
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/app.js') }}"></script>
+{% endblock %}

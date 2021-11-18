@@ -1,0 +1,48 @@
+<section class="container-fluid h-100">
+       <div class="row h-100 bg-dark align-items-end text-center" id="fake_photo">
+       <div class="col-12 text-center pb-5">
+           <button class="btn btn-light btn-lg mx-auto" onclick="toggleResult();"><i class="bi bi-camera-fill"></i></button>
+       </div>
+    </div>
+    <div class="row h-100 d-none" id="fake_res">
+        <div class=" col-lg-6 lh-1 order-1 h-100">
+            <div class="row p-3 p-lg-5 {#h-100#}">
+                <div class="col-12 mx-auto">
+                    <h1 class="display-1 fw-bold mb-0 lh--1 text-nowrap"><span class="text-danger">.</span>ouverture
+                        <br>
+                        <span class="position-relative fw-bold"><em class="">n° 0105150</em>
+                    <svg class="position-absolute" style="bottom: .5rem;left: 0;" viewBox="0 0 274 8">
+                        <path fill="none" stroke="#dc3545" stroke-width="8"
+                              d="M174,456.290698 C307.466899,452.763566 398.466899,451 447,451"
+                              transform="translate(-173 -450)">
+                        </path>
+                    </svg>
+                </span>
+                    </h1>
+                    {#<h2 class="display-1 fw-bold lh--1 text-nowrap">de boite fibre#}{#<span class="text-primary">de</span>
+                        <span class="fst-italic d-none d-sm-inline-block">garantie<sup
+                                    class="text-muted h1">*</sup></span>...#}{#</h2>#}
+                    <p class="h6 col-sm-8 col-md-8 col-lg-12 col-xl-10 mt-3">Vous avez ouvert la boite<br> <span class="badge bg-light text-dark">le {{ ''|date('d/m/Y à H:i:s') }}</span></p>
+                    {#<a href="{{ path('app',{route:'estimation'}) }}" role="button"
+                       class="btn btn-lg btn-primary mt-3 shadow-lg z-menu"
+                       data-bz-auth="{{ csrf_token('navs') }}">Estimation en ligne <i class="bi bi-magic small"></i></a>#}
+                </div>
+                <div class="col-12">
+                    <p class="h6">Motif de l'ouverture</p>
+                    <input type="text" class="form-control form-control-lg">
+                   {# <select name="ouverture[motif]" id="ouverture_motif" class="form-select">
+                        <option value="1">Intervention suite defaut</option>
+                        <option value="1">Verification état</option>
+                        <option value="1">Autres (précisez)</option>
+                    </select>#}
+                    <p class="h6 mt-3">Observations</p>
+                    <textarea name="" id="" cols="30" rows="5" class="form-control form-control-lg"></textarea>
+
+
+                    <p class="h6 mt-3">Fermeture</p>
+                    <button class="btn btn-light btn-lg w-100"><i class="bi bi-camera-fill"></i> Photo de fermeture</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

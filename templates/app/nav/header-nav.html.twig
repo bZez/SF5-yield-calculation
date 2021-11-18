@@ -1,0 +1,18 @@
+<nav class="text-white">
+     <button class="btn text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#menu" aria-controls="menu"
+            title="Menu" data-bs-placement="left">
+         <i class="bi bi-person-fill"></i>
+    </button>
+    {#<a href="{{ path('app',{route:'estimation'}) }}" role="button" class="btn btn-primary" title="Ouverture"
+       data-bs-placement="bottom" data-bz-auth="{{ csrf_token('navs') }}"><i class="bi bi-qr-code-scan"></i> Scanner</a>#}
+    <div class="btn-group">
+        {#<a href="{{ path('app',{route:'profile'}) }}" role="button" class="btn text-white" title="Profil"
+           data-bs-placement="bottom" data-bz-auth="{{ csrf_token('navs') }}">
+            <i class="bi bi-person-fill"></i>
+        </a>#}
+        <a href="{{ path('app_logout') }}" type="button" class="btn text-white" title="Quitter" data-bs-placement="bottom"
+           id="logout_btn">
+            <i class="bi bi-door-open-fill "></i>
+        </a>
+    </div>
+</nav>
