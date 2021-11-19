@@ -107,7 +107,7 @@ form{
     position: absolute;
     top:-100%;
     /*left:0;*/
-    z-index: -1;
+    z-index: 0;
     width: 100vw;
     height: 100vh;
     background: url("../img/logo-light.png") no-repeat center center/160px;
