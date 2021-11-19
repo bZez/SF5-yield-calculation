@@ -1,7 +1,7 @@
 {
   "background_color": "purple",
   "description": "Shows random fox pictures. Hey, at least it isn't cats.",
-  "display": "fullscreen",
+  "display": "standalone",
   "icons": [
     {
       "src": "img/android/android-launchericon-192-192.png",
