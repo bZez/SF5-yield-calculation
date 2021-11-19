@@ -9,7 +9,7 @@ document.querySelector('#menu').addEventListener('show.bs.offcanvas', function (
     }
 
     var html5QrcodeScanner = new Html5QrcodeScanner(
-        "qr-video", { fps: 10, qrbox: 250 ,aspectRatio:1.777778,facingMode: "user" });
+        "qr-video", { fps: 10, qrbox: 250 ,facingMode: "back" });
     html5QrcodeScanner.render(onScanSuccess, onScanError);
     // Get the video element
 
