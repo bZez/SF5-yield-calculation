@@ -1,6 +1,6 @@
 document.querySelector('#menu').addEventListener('show.bs.offcanvas', function () {
     const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-        genLink('http://localhost/sfrbox/public/@result')
+        genLink('/@result')
         document.querySelector('[data-bs-dismiss="offcanvas"]').click();
     };
     const config = { fps: 10, qrbox: { width: 250, height: 250 } };

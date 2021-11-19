@@ -3,13 +3,11 @@
 
 {% block body %}
     <figure id="sheep-head" class="row align-items-center">
-        {% if not app.request.get('app') %}
-        <div class="col-12 text-center mt-5 add-button poisition-relative" style="z-index: 2001" >
-            <div class="rounded-5 bg-light text-dark">Cliquez pour installer ACT Boite</div>
+        <div class="col-12 text-center mt-5 add-button position-relative" style="z-index: 2001" >
+            <span class="rounded-5 bg-light text-dark px-3 py-2 fw-bold">Cliquez pour installer ACT Boite</span>
         </div>
-        {% endif %}
     </figure>
-    {% if not app.user and app.request.get('app') %}
+    {% if not app.user %}
     <div class="row h-100 align-items-end">
         <div class="col-12 col-xs-7 col-sm-8 col-md-5 col-lg-4 p-4">
 
