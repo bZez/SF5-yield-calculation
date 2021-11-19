@@ -23,52 +23,7 @@
 {% block body %}{% endblock %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{ asset('js/form.js') }}"></script>
-<script type="module">
-    import QrScanner from "{{ asset('js/qr-scanner.js') }}";
-    QrScanner.WORKER_PATH = '{{ asset('js/qr-scanner-worker.min.js') }}';
-
-    const video = document.getElementById('qr-video');
-    let streaming = null, width = document.body.clientWidth
-    video.setAttribute('style', 'margin-left:-33vh;');
-    let height = video.videoHeight / (video.videoWidth / width);
-    video.setAttribute('width', width);
-    video.setAttribute('height', height);
-    streaming = !0;
-    // ####### Web Cam Scanning #######
-
-    const scanner = new QrScanner(video, result => console.log('decoded qr code:', result));
-
-
-    scanner.start()
-
-    QrScanner.hasCamera().then(hasCamera => camHasCamera.textContent = hasCamera);
-
-    // for debugging
-    window.scanner = scanner;
-
-
-
-    document.getElementById('start-button').addEventListener('click', () => {
-        scanner.start();
-    });
-
-    document.getElementById('stop-button').addEventListener('click', () => {
-        scanner.stop();
-    });
-
-    // ####### File Scanning #######
-
-    fileSelector.addEventListener('change', event => {
-        const file = fileSelector.files[0];
-        if (!file) {
-            return;
-        }
-        QrScanner.scanImage(file)
-            .then(result => setResult(fileQrResult, result))
-            .catch(e => setResult(fileQrResult, e || 'No QR code found.'));
-    });
-
-</script>
+<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 <script>
     const app = new bootstrap.Modal(document.getElementById('app'), {});
     document.querySelectorAll('[title]').forEach(t => {
