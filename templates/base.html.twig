@@ -25,9 +25,18 @@
 <script src="{{ asset('js/form.js') }}"></script>
 <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('{{ asset('js/sw.js') }}')
+            .then(() => { console.log('Service Worker Registered'); });
+    }
+
+    // Code to handle install prompt on desktop
+
     let deferredPrompt;
     const addBtn = document.querySelector('.add-button');
     addBtn.style.display = 'none';
+
     window.addEventListener('beforeinstallprompt', (e) => {
         // Prevent Chrome 67 and earlier from automatically showing the prompt
         e.preventDefault();
@@ -36,7 +45,7 @@
         // Update UI to notify the user they can add to home screen
         addBtn.style.display = 'block';
 
-        addBtn.addEventListener('click', (e) => {
+        addBtn.addEventListener('click', () => {
             // hide our user interface that shows our A2HS button
             addBtn.style.display = 'none';
             // Show the prompt
@@ -52,6 +61,8 @@
             });
         });
     });
+
+
     const app = new bootstrap.Modal(document.getElementById('app'), {});
     document.querySelectorAll('[title]').forEach(t => {
         return new bootstrap.Tooltip(t)
