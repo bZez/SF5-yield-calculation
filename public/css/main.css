@@ -110,7 +110,7 @@ form{
     z-index: -1;
     width: 100vw;
     height: 100vh;
-    background: url("http://www.azurconnect.fr/images/logo-light.png") no-repeat center center/160px;
+    background: url("https://www.azurconnect.fr/images/logo-light.png") no-repeat center center/160px;
     animation: fadeFromTop .5s forwards;
 }
 #sheep-head.fadeToBottom {
