@@ -1,7 +1,7 @@
 {
-  "background_color": "purple",
-  "description": "Shows random fox pictures. Hey, at least it isn't cats.",
-  "display": "fullscreen",
+  "background_color": "#212529",
+  "description": "Suivi d'ouverture & fermeture de boite fibre optique",
+  "display": "standalone",
   "icons": [
     {
       "src": "img/fox-icon.png",
@@ -9,7 +9,7 @@
       "type": "image/png"
     }
   ],
-  "name": "Awesome fox pictures",
-  "short_name": "Foxes",
-  "start_url": "/"
+  "name": "ACT Boite",
+  "short_name": "ACTb",
+  "start_url": "/?app=true"
 }

@@ -106,11 +106,11 @@ form{
 #sheep-head {
     position: absolute;
     top:-100%;
-    left:0;
+    /*left:0;*/
     z-index: -1;
     width: 100vw;
     height: 100vh;
-    background: url("https://www.azurconnect.fr/images/logo-light.png") no-repeat center center/160px;
+    background: url("../img/logo-light.png") no-repeat center center/160px;
     animation: fadeFromTop .5s forwards;
 }
 #sheep-head.fadeToBottom {

@@ -2,11 +2,16 @@
 
 
 {% block body %}
-    <figure id="sheep-head"></figure>
-    {% if not app.user %}
+    <figure id="sheep-head" class="row align-items-center">
+        {% if not app.request.get('app') %}
+        <div class="col-12 text-center mt-5">
+            <button class="btn btn-lg btn-light shadow-lg">Cliquez pour installer ACT Boite</button>
+        </div>
+        {% endif %}
+    </figure>
+    {% if not app.user and app.request.get('app') %}
     <div class="row h-100 align-items-end">
         <div class="col-12 col-xs-7 col-sm-8 col-md-5 col-lg-4 p-4">
-            <button class="add-button">Add to home screen</button>
 
             <div class="row">
                {# <figure class="col-12 my-3">
