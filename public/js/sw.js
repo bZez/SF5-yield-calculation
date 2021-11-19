@@ -1,13 +1,14 @@
-//lors de l'installation
-self.addEventListener('install' ,evt =>{
-    console.log('install evt',evt);
+self.addEventListener('install', (e) => {
+    e.waitUntil(
+        caches.open('fox-store').then((cache) => cache.addAll([
+            '../img/fox-icon.png',
+        ])),
+    );
+});
 
-})
-
-
-//capture des events
-self.addEventListener('fetch' ,evt =>{
-    console.log('events captures : ');
-    console.log('fetch evt sur url' ,evt.request.url);
-
-})
+self.addEventListener('fetch', (e) => {
+    console.log(e.request.url);
+    e.respondWith(
+        caches.match(e.request).then((response) => response || fetch(e.request)),
+    );
+});
