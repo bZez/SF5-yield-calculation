@@ -1,7 +1,7 @@
 # SF5-yield-calculation
 Simple raw materials and transformations yield calculation symfony 5 app
 
-![preview](preview.png "Preview")
+![preview](preview.gif "Preview")
 
 **Demo:** https://feesh.bzez.dev/
 
