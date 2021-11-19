@@ -61,6 +61,8 @@
             }
         }
     }
+    const html5QrCode = new Html5Qrcode(
+        "qr-video", { formatsToSupport: [ Html5QrcodeSupportedFormats.QR_CODE ] });
 </script>
 {% block javascripts %}
 {% endblock %}

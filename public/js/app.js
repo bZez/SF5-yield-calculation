@@ -1,56 +1,13 @@
 document.querySelector('#menu').addEventListener('show.bs.offcanvas', function () {
-  /*  function onScanSuccess(decodedText, decodedResult) {
-        // Handle on success condition with the decoded text or result.
-        console.log(`Scan result: ${decodedText}`, decodedResult);
-    }
-
-    function onScanError(errorMessage) {
-        // handle on error condition, with error message
-    }
-
-    var html5QrcodeScanner = new Html5QrcodeScanner(
-        "qr-video", { fps: 10, qrbox: 250 ,facingMode: "back" });
-    html5QrcodeScanner.render(onScanSuccess, onScanError);
-    document.querySelector('#qr-video__dashboard').style.display = 'none'*/
-    const html5QrCode = new Html5Qrcode(
-        "qr-video", { formatsToSupport: [ Html5QrcodeSupportedFormats.QR_CODE ] });
     const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-        /* handle success */
+        genLink('http://localhost/sfrbox/public/@result')
+        document.querySelector('[data-bs-dismiss="offcanvas"]').click();
     };
     const config = { fps: 10, qrbox: { width: 250, height: 250 } };
-
-// If you want to prefer front camera
     html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
-    // Get the video element
-    // html5QrcodeScanner.start();
-// Check if device has camera
-    /*navigator.getMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
-
-    navigator.getMedia({video: !0, audio: !1}, function (stream) {
-        if ('srcObject' in video) {
-            video.srcObject = stream;
-        } else {
-            video.src = vu.createObjectURL(stream);
-        }
-        video.play();
-    }, function (error) {
-        if (window.console)
-            console.error(error);
-    });
-
-    video.addEventListener('canplay', function (ev) {
-        if (!streaming) {
-            video.setAttribute('style', 'margin-left:-33vh;');
-            height = video.videoHeight / (video.videoWidth / width);
-            video.setAttribute('width', width);
-            video.setAttribute('height', height);
-            streaming = !0;
-        }
-    }, !1);*/
 })
 document.querySelector('#menu').addEventListener('hide.bs.offcanvas', function () {
-    const video = document.querySelector('#video')
-    video.srcObject = null;
+    html5QrCode.stop();
     disableSpinners(document.querySelector('[data-bs-toggle="offcanvas"]'))
 })
 document.body.querySelector('#app').addEventListener('hide.bs.modal', function () {

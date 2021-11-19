@@ -1,12 +1,12 @@
 {
-  "name":"Cross App",
-  "short_name":"CRAPP",
+  "name":"ACT Boite",
+  "short_name":"ACTB",
   "start_url":"/",
   "display":"standalone",
-  "background_color":"#5900b3",
-  "theme_color":"black",
+  "background_color":"#07305c",
+  "theme_color":"#07305c",
   "scope": ".",
-  "description":"Simple app boilerplate",
+  "description":"Scanner de boite fibre",
   "icons": [
     {
       "src": "img/windows11/SmallTile.scale-100.png",
