@@ -37,6 +37,6 @@
   "start_url": "/",
   "background_color": "#3367D6",
   "display": "standalone",
-  "scope": "https://actboite.bzez.io/",
+  "scope": "/",
   "theme_color": "#3367D6"
 }
