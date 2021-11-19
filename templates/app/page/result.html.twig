@@ -1,12 +1,13 @@
 <section class="container-fluid h-100">
-       <div class="row h-100 bg-dark align-items-end text-center" id="fake_photo">
-       <div class="col-12 text-center pb-5">
-           <button class="btn btn-light btn-lg mx-auto" onclick="toggleResult();"><i class="bi bi-camera-fill"></i></button>
-       </div>
-    </div>
-    <div class="row h-100 d-none" id="fake_res">
+   {# <div class="row h-100 bg-dark align-items-end text-center" id="fake_photo">
+        <div class="col-12 text-center pb-5">
+            <button class="btn btn-light btn-lg mx-auto" onclick="toggleResult();"><i class="bi bi-camera-fill"></i>
+            </button>
+        </div>
+    </div>#}
+    <div class="row h-100">
         <div class=" col-lg-6 lh-1 order-1 h-100">
-            <div class="row p-3 p-lg-5 {#h-100#}">
+            <div class="row p-3 p-lg-5 {# h-100 #}">
                 <div class="col-12 mx-auto">
                     <h1 class="display-1 fw-bold mb-0 lh--1 text-nowrap"><span class="text-danger">.</span>ouverture
                         <br>
@@ -19,29 +20,72 @@
                     </svg>
                 </span>
                     </h1>
-                    {#<h2 class="display-1 fw-bold lh--1 text-nowrap">de boite fibre#}{#<span class="text-primary">de</span>
+                    {# <h2 class="display-1 fw-bold lh--1 text-nowrap">de boite fibre #}{# <span class="text-primary">de</span>
                         <span class="fst-italic d-none d-sm-inline-block">garantie<sup
-                                    class="text-muted h1">*</sup></span>...#}{#</h2>#}
-                    <p class="h6 col-sm-8 col-md-8 col-lg-12 col-xl-10 mt-3">Vous avez ouvert la boite<br> <span class="badge bg-light text-dark">le {{ ''|date('d/m/Y à H:i:s') }}</span></p>
-                    {#<a href="{{ path('app',{route:'estimation'}) }}" role="button"
+                                    class="text-muted h1">*</sup></span>... #}{# </h2> #}
+                    {# <a href="{{ path('app',{route:'estimation'}) }}" role="button"
                        class="btn btn-lg btn-primary mt-3 shadow-lg z-menu"
-                       data-bz-auth="{{ csrf_token('navs') }}">Estimation en ligne <i class="bi bi-magic small"></i></a>#}
+                       data-bz-auth="{{ csrf_token('navs') }}">Estimation en ligne <i class="bi bi-magic small"></i></a> #}
                 </div>
-                <div class="col-12">
-                    <p class="h6">Motif de l'ouverture</p>
-                    <input type="text" class="form-control form-control-lg">
-                   {# <select name="ouverture[motif]" id="ouverture_motif" class="form-select">
+                <form class="col-12 mt-4 needs-validation was-validated" name="ouverture" novalidate>
+                    <p class="h6">Ouverture <span class="badge bg-light text-dark">le {{ ''|date('d/m/Y à H:i:s') }}</span></p>
+                    <label class="btn btn-light btn-lg w-100 form-control is-invalid"><i class="bi bi-camera-fill"></i> Photo d'ouverture
+                        <input type="file" name="photo_ouverture" accept="image/x-png,image/jpeg,image/gif" hidden required/>
+                    </label>
+
+                    <div class="row mt-3">
+                        <p class="h6">Etat</p>
+                        <div class="col-12">
+                            <div class="dropdown w-100 rounded shadow form-control is-invalid">
+                                <button class="btn btn-bd-light dropdown-toggle w-100 text-start ps-0" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+                                    Aucun état sélectionné
+                                </button>
+                                <ul class="dropdown-menu w-100 py-0 rounded-3 overflow-hidden border shadow" aria-labelledby="bd-versions">
+                                    <li class="bg-success bg-opacity-50 p-3" data-bz-value="VERT" data-bz-label="VERT" data-bz-bg="success">
+                                        <div class="col">
+                                            VERT
+                                        </div>
+                                        {# <a class="dropdown-item current" aria-current="true" href="/docs/5.1/">Latest (5.1.x)</a>#}
+                                    </li>
+                                    <li class="bg-warning bg-opacity-50 p-3" data-bz-value="JAUNE" data-bz-label="JAUNE" data-bz-bg="warning">
+                                        <div class="col">
+                                            JAUNE
+                                        </div>
+                                    </li>
+                                    <li class="bg-danger bg-opacity-50 p-3" data-bz-value="ROUGE" data-bz-label="ROUGE" data-bz-bg="danger">
+                                        <div class="col">
+                                           ROUGE
+                                        </div>
+                                    </li>
+                                    <li class="bg-dark bg-opacity-50 p-3" data-bz-value="NOIR" data-bz-label="NOIR" data-bz-bg="secondary">
+                                        <div class="col">
+                                            NOIR (déclarez l'incident)
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <input name="etat" required class="form-control form-control-lg" hidden>
+                        </div>
+                    </div>
+
+                    <p class="h6 mt-3">Motif de l'ouverture</p>
+                    <input type="text" class="form-control form-control-lg"required >
+                    {# <select name="ouverture[motif]" id="ouverture_motif" class="form-select">
                         <option value="1">Intervention suite defaut</option>
                         <option value="1">Verification état</option>
                         <option value="1">Autres (précisez)</option>
-                    </select>#}
+                    </select> #}
                     <p class="h6 mt-3">Observations</p>
-                    <textarea name="" id="" cols="30" rows="5" class="form-control form-control-lg"></textarea>
+                    <textarea name="" id="" cols="30" rows="4" class="form-control" required></textarea>
 
 
                     <p class="h6 mt-3">Fermeture</p>
-                    <button class="btn btn-light btn-lg w-100"><i class="bi bi-camera-fill"></i> Photo de fermeture</button>
-                </div>
+                    <label  class="btn btn-light btn-lg w-100 form-control is-invalid"><i class="bi bi-camera-fill"></i> Photo de fermeture
+                        <input type="file" name="photo_fermeture" accept="image/x-png,image/jpeg,image/gif" hidden required/>
+                    </label>
+
+                    <button id="submit_ouverture" data-bz-href="{{ path('estimation') }}" type="submit" data-bz-auth="{{ csrf_token('estimation') }}" hidden></button>
+                </form>
             </div>
         </div>
     </div>

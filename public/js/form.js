@@ -5,7 +5,7 @@ function formListener(event) {
     // console.log(form)
     if (!form.checkValidity()) {
         event.stopPropagation();
-        if (form.classList.contains('estimation-form')) {
+        if (form.name === 'ouverture') {
             form.querySelectorAll('.dropdown.form-control').forEach(dd => {
                 if (!dd.nextElementSibling.value)
                     dd.classList.add('is-invalid')
@@ -56,12 +56,23 @@ function initForms() {
                     input = container.nextElementSibling;
                 input.value = li.getAttribute('data-bz-value');
                 button.innerHTML = li.getAttribute('data-bz-label');
+                button.parentElement.setAttribute('class', 'dropdown w-100 rounded shadow form-control bg-' + li.getAttribute('data-bz-bg'))
                 if (form.classList.contains('was-validated')) {
                     button.parentElement.classList.remove('is-invalid')
                     button.parentElement.classList.add('is-valid')
                 }
             })
         });
+        form.querySelectorAll('input[type="file"]').forEach(ipt => {
+            ipt.addEventListener('change', function (e) {
+                if (e.currentTarget.name !== "photo_fermeture") {
+                    e.currentTarget.parentElement.classList.remove('is-invalid')
+                    e.currentTarget.parentElement.classList.add('is-valid')
+                } else if (form.querySelector('.is-invalid') && e.currentTarget.name === "photo_fermeture") {
+                   form.querySelector('#submit_ouverture').click();
+                }
+            })
+        })
         form.addEventListener('submit', formListener, true)
     });
 }

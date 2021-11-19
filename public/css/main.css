@@ -55,9 +55,9 @@ resize: none!important;
     background: #efefef;
     color: #1b1e21;
 }
-.dropdown>ul>li:hover {
+/*.dropdown>ul>li:hover {
     background: radial-gradient(circle at 50% 50%, rgba(11, 94, 215, 0.13), rgba(255, 255, 255, 0));
-}
+}*/
 .rounded-5-start {
     border-top-left-radius: 5rem!important;
     border-bottom-left-radius: 5rem!important;
